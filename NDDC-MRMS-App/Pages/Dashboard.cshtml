@@ -1,0 +1,231 @@
+﻿@page
+@model NDDC_MRMS_App.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+    ViewData["dashboard"] = "active";
+    //ViewData["HeaderDate"] = Model.HeaderDate;
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Dashboard</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Application</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<div class="row h-100">
+    <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="avatar-sm flex-shrink-0">
+                        <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                            <i class="ri-money-dollar-circle-fill align-middle"></i>
+                        </span>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">
+                            Patients on Record
+                        </p>
+                        @*<h4 class=" mb-0"><span class="counter-value" data-target="@Model.EmpCount">@Model.EmpCount</span></h4>*@
+                    </div>
+                    <div class="flex-shrink-0 align-self-end">
+                        <span class="badge badge-soft-success">
+                            <i class="ri-arrow-up-s-fill align-middle me-1"></i>6.24
+                            %<span>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div><!-- end card body -->
+        </div><!-- end card -->
+    </div><!-- end col -->
+    <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="avatar-sm flex-shrink-0">
+                        <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                            <i class="ri-arrow-up-circle-fill align-middle"></i>
+                        </span>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">
+                            Patients Added This Month
+                        </p>
+                        @*<h4 class=" mb-0"><span data-target=@Model.TotalEarnings>@Model.EmpAddedThisMonth</span></h4>*@
+                    </div>
+                    <div class="flex-shrink-0 align-self-end">
+                        @* <span class="badge badge-soft-success">
+                        <i class="ri-arrow-up-s-fill align-middle me-1"></i>3.67
+                        %<span>
+                        </span>
+                        </span>*@
+                    </div>
+                </div>
+            </div><!-- end card body -->
+        </div><!-- end card -->
+    </div><!-- end col -->
+    <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="avatar-sm flex-shrink-0">
+                        <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                            <i class="ri-arrow-down-circle-fill align-middle"></i>
+                        </span>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">
+                            Patients Exited This Month
+                        </p>
+                        @*<h4 class=" mb-0"><span data-target=@Model.NetPay>@Model.EmpExitedThisMonth</span></h4>*@
+                    </div>
+                    <div class="flex-shrink-0 align-self-end">
+                        @* <span class="badge badge-soft-danger">
+                        <i class="ri-arrow-down-s-fill align-middle me-1"></i>4.80
+                        %<span>
+                        </span>
+                        </span>*@
+                    </div>
+                </div>
+            </div><!-- end card body -->
+        </div><!-- end card -->
+    </div><!-- end col -->
+</div>
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Vital Signs Chart</h4>
+            </div>
+            <div class="card-body">
+                <canvas id="pieChart" class="chartjs-chart" data-colors="[&quot;--vz-primary&quot;, &quot;--vz-light&quot;]" width="445" height="320" style="display: block; box-sizing: border-box; height: 320px; width: 445px;"></canvas>
+            </div>
+        </div>
+    </div> <!-- end col -->
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Adverse Events Chart</h4>
+            </div>
+            <div class="card-body">
+                <canvas id="doughnut" class="chartjs-chart" data-colors="[&quot;--vz-primary&quot;, &quot;--vz-light&quot;]" width="445" height="320" style="display: block; box-sizing: border-box; height: 320px; width: 445px;"></canvas>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Patients Snap-Shot</h4>
+            </div><!-- end card header -->
+            <div class="card-body">
+                <div class="table-responsive table-card">
+                    <table class="table table-nowrap table-striped-columns mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="cardtableCheck">
+                                        <label class="form-check-label" for="cardtableCheck"></label>
+                                    </div>
+                                </th>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="cardtableCheck01">
+                                        <label class="form-check-label" for="cardtableCheck01"></label>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="fw-semibold">#VL2110</a></td>
+                                <td>William Elmore</td>
+                                <td>07 Oct, 2021</td>
+                                <td>$24.05</td>
+                                <td><span class="badge bg-success">Paid</span></td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-light">Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="cardtableCheck02">
+                                        <label class="form-check-label" for="cardtableCheck02"></label>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="fw-semibold">#VL2109</a></td>
+                                <td>Georgie Winters</td>
+                                <td>07 Oct, 2021</td>
+                                <td>$26.15</td>
+                                <td><span class="badge bg-success">Paid</span></td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-light">Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="cardtableCheck03">
+                                        <label class="form-check-label" for="cardtableCheck03"></label>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="fw-semibold">#VL2108</a></td>
+                                <td>Whitney Meier</td>
+                                <td>06 Oct, 2021</td>
+                                <td>$21.25</td>
+                                <td><span class="badge bg-danger">Refund</span></td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-light">Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="cardtableCheck04">
+                                        <label class="form-check-label" for="cardtableCheck04"></label>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="fw-semibold">#VL2107</a></td>
+                                <td>Justin Maier</td>
+                                <td>05 Oct, 2021</td>
+                                <td>$25.03</td>
+                                <td><span class="badge bg-success">Paid</span></td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-light">Details</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end col-->
+</div>
+
+@section Scripts {
+    <script src="~/libs/chart.js/chart.min.js"></script>
+    <script src="~/js/pages/chartjs.init.js"></script>
+}
