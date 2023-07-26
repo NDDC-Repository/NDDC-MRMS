@@ -68,7 +68,6 @@
                                 <th scope="col">Code</th>
                                 <th scope="col">Full Name</th>
                                 <th scope="col">Gender</th>
-                                <th scope="col">Grade Level</th>
                                 <th scope="col">Department</th>
                                 <th scope="col">JobTitle</th>
                                 <th scope="col">Category</th>
@@ -84,7 +83,6 @@
                                     <td><a asp-page="EmployeeDetails" asp-route-EmpID="@item.Id" class="fw-medium">@item.EmployeeCode</a></td>
                                     <td>@item.FullName</td>
                                     <td>@item.Gender</td>
-                                    <td>@item.GradeLevel</td>
                                     <td>@item.DepartmentName</td>
                                     <td>@item.Description</td>
                                     <td>@item.Category</td>
@@ -96,7 +94,7 @@
 
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <li><a asp-page="EmployeeDetails" asp-route-EmpID="@item.Id" class="dropdown-item">View Details</a></li>
-                                                @if (User.IsInRole("Admin"))
+                                                @if (User.IsInRole("Admin") == false)
                                                 {
                                                     <li><a asp-page="AddPatient" asp-route-EmpID="@item.Id" class="dropdown-item">Add Records</a></li>
 

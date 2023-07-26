@@ -120,29 +120,7 @@
                                                 </div>
                                             </div>
                                             <!--end col-->
-                                            <div class="col-md-12">
-                                                <div class="mb-3">
-                                                    <label asp-for="@Model.Patient.EmployeeCode" class="form-label">Address</label>
-                                                    <input asp-for="@Model.Patient.EmployeeCode" class="form-control" placeholder="Address 1" id="address1ControlTextarea">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label asp-for="@Model.Patient.EmployeeCode" class="form-label">City</label>
-                                                    <input asp-for="@Model.Patient.EmployeeCode" class="form-control" placeholder="Enter your city" id="citynameInput">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label asp-for="@Model.Patient.EmployeeCode" class="form-label">State</label>
-                                                   @* <select class="form-select" asp-for="@@Model.Employee.SID" asp-items="@(new SelectList(Model.States, "Id", "FullDescription"))">
-                                                        <option selected="">Choose...</option>
-                                                    </select>*@
-                                                    <span asp-validation-for="@Model.Patient.EmployeeCode" class="text-danger"></span>
-                                                </div>
-                                            </div>
+                                            
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Medical Bio</h4>
                                             </div>
