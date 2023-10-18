@@ -172,10 +172,10 @@
                             </li>
 
                             <!-- Data Manager Menu -->
-                            <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Data Manager</span></li>
+                            @* <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Data Manager</span></li>
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="/Reports/ReportsList">
-                                    <i data-feather="archive" class="icon-dual"></i> <span data-key="t-dashboards">Vitals </span>
+                                    <i data-feather="archive" class="icon-dual"></i> <span data-key="t-dashboards">Investigation Types </span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -187,10 +187,15 @@
                                 <a class="nav-link menu-link" href="/Reports/ReportsList">
                                     <i data-feather="archive" class="icon-dual"></i> <span data-key="t-dashboards">Allergies </span>
                                 </a>
-                            </li>
+                            </li> *@
                            
                             <!-- Settings Menu -->
                             <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Settings</span></li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-link" href="/Reports/ReportsList">
+                                    <i data-feather="archive" class="icon-dual"></i> <span data-key="t-dashboards">Investigation Types </span>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link menu-link @ViewData["JobTitles"]" href="/Settings/Labs">
                                     <i data-feather="users" class="icon-dual"></i> <span data-key="t-dashboards">labs</span>
@@ -198,7 +203,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link menu-link @ViewData["GradeLevel"]" href="/Company/GradeLevels">
-                                    <i data-feather="align-justify" class="icon-dual"></i> <span data-key="t-dashboards">Illnesses</span>
+                                    <i data-feather="align-justify" class="icon-dual"></i> <span data-key="t-dashboards">Vital Signs Borders</span>
                                 </a>
                             </li>
                             <li class="nav-item">
