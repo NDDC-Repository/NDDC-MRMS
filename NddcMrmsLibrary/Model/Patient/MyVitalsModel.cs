@@ -9,6 +9,7 @@ namespace NddcMrmsLibrary.Model.Patient
 {
 	public class MyVitalsModel
 	{
+        public int SrNo { get; set; }
         public int Id { get; set; }
         public int EmpId { get; set; }
         public int Temp { get; set; }

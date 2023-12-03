@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{Id:int?}"
 @model NDDC_MRMS_App.Pages.Settings.ChecklistItemsModel
 @{
 }
@@ -39,26 +39,20 @@
                             <thead>
                                 <tr>
                                     <th scope="col">S/N</th>
-                                    <th scope="col">Category Item</th>
+                                    <th scope="col">Examination Type</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">1</a></th>
-                                    <td>Computerized Visual Field</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">2</a></th>
-                                    <td>Fundoscopy</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">3</a></th>
-                                    <td>Optical Coherence</td>
-                                    
-                                </tr>
+                                @foreach (var item in Model.ExamTypes)
+                                {
+                                    <tr>
+                                        <th scope="row"><a href="#" class="fw-medium">@item.SrNo</a></th>
+                                        <td>@item.ExaminationType</td>
+
+                                    </tr>
+                                }
+                               
                             </tbody>
                         </table>
                     </div>
