@@ -39,7 +39,7 @@ namespace NddcMrmsLibrary.Model.Lab
         public string ContactAddress2 { get; set; }
         public string ContactPhone2 { get; set; }
         public string ContactEmail2 { get; set; }
-        public bool Approved { get; set; }
+        public Boolean Approved { get; set; }
         public string CreatedBy { get; set; }
         public DateTime DateCreated { get; set; }
     }

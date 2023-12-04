@@ -53,6 +53,7 @@
                                 <th scope="col">City</th>
                                 <th scope="col">Company Phone</th>
                                 <th scope="col">Company Email</th>
+                                <th scope="col">Approved</th>
 
 
                             </tr>
@@ -69,14 +70,16 @@
                                     <td>@item.CompanyPhone</td>
                                     <td>@item.CompanyEmail</td>
                                     <td>
+                                        <input class="form-check-input" disabled="true" type="checkbox" asp-for="@item.Approved" id="flexCheckDefault">
+                                    <td>
+                                    <td>
                                         <div class="dropdown">
                                             <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="ri-more-2-fill"></i>
                                             </a>
 
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <li><a asp-page="ApproveLab" asp-route-EmpID="@item.Id" class="dropdown-item">Approve</a></li>
-                                               
+                                                <li><a asp-page="ApproveLab" asp-route-Id="@item.Id" class="dropdown-item">Approve</a></li>
                                             </ul>
                                         </div>
 

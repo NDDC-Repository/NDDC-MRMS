@@ -1,0 +1,29 @@
+﻿@page "{Id:int?}"
+@model NDDC_MRMS_App.Pages.Settings.ApproveLabModel
+@{
+}
+
+
+<form method="post">
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h3>Approve Laboratory</h3>
+            </div>
+            <div class="card-body">
+                <h2>@Model.LabName</h2>
+                <p>
+                    You are about to Approve the above mentioned Laboratory to Participate in the Annual Medical Examination Exercise. Please note that approving this Test Center would give
+                    them Limited Access to staff records and access to update medical diagnostics records of Staff.
+                </p>
+                <div class="v-stack">
+                    <button class="btn btn-primary" type="submit">Approve</button>
+                        <button class="btn btn-danger">Remove</button>
+                        <a class="btn btn-secondary" asp-page="Labs">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

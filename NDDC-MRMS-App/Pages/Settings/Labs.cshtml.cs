@@ -12,7 +12,7 @@ namespace NDDC_MRMS_App.Pages.Settings
         [BindProperty]
         public string SearchTerm { get; set; }
         public List<MyLabModel> Labs { get; set; }
-
+        
         public LabsModel(ILabsData labDb)
         {
             this.labDb = labDb;
@@ -21,5 +21,9 @@ namespace NDDC_MRMS_App.Pages.Settings
         {
             Labs = labDb.GetAllLabs();
         }
+        public void OnPost()
+        {
+        }
+
     }
 }
