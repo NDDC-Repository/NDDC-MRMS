@@ -10,6 +10,7 @@ namespace NDDC_MRMS_App.Pages.PatientRecords
     {
         public EmployeeModel Employee { get; set; }
         public List<MyVitalsModel> Vitals { get; set; }
+        public List<MyMedicalBioModel> MedicalBio { get; set; }
 
         private readonly IEmployeeData empDb;
         private readonly IPatientData patientDb;
@@ -23,6 +24,8 @@ namespace NDDC_MRMS_App.Pages.PatientRecords
         {
             Employee = empDb.GetEmployeeDetails(EmpId.Value);
             Vitals = patientDb.GetVitals(EmpId.Value);
+            MedicalBio = patientDb.GetMedicalBio(EmpId.Value);
+            
         }
     }
 }

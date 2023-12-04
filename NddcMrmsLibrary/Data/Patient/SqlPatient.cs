@@ -24,9 +24,9 @@ namespace NddcMrmsLibrary.Data.Patient
         {
             db.SaveData("Insert Into MedicalBio (EmpId, Height, BloodGroup, Genotype, Weight, BMI, Disabilities, AddedBy, DateAdded) Values(@EmpId, @Height, @BloodGroup, @Genotype, @Weight, @BMI, @Disabilities, @AddedBy, @DateAdded)", new { medicalBio.EmpId, medicalBio.Height, medicalBio.BloodGroup, medicalBio.Genotype, medicalBio.Weight, medicalBio.BMI, medicalBio.Disabilities, medicalBio.AddedBy, medicalBio.DateAdded }, connectionStringName, false);
         }
-        public MyMedicalBioModel GetMedicalBio(int empId)
+        public List<MyMedicalBioModel> GetMedicalBio(int empId)
         {
-            return db.LoadData<MyMedicalBioModel, dynamic>("Select Height, BloodGroup, Genotype, Weight, BMI, Disabilities From MedicalBio Where EmpId = @empId", new { empId }, connectionStringName, false).FirstOrDefault();
+            return db.LoadData<MyMedicalBioModel, dynamic>("Select ROW_NUMBER() OVER(ORDER BY Id DESC) As SrNo, Id, EmpId, Height, BloodGroup, Genotype, Weight, BMI, Disabilities, AddedBy, DateAdded From MedicalBio Where EmpId = @empId", new { empId }, connectionStringName, false).ToList();
         }
 
         //Vitals
