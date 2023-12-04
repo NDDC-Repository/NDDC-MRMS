@@ -13,6 +13,7 @@ namespace NDDC_MRMS_App.Pages.PatientRecords
         public List<MyVitalsModel> Vitals { get; set; }
         public List<MyMedicalBioModel> MedicalBio { get; set; }
         public List<MyInvestigationsModel> Investigations { get; set; }
+        public List<MyMedicalReportModel> MedicalReport { get; set; }
         public int Age { get; set; }
 
         private readonly IEmployeeData empDb;
@@ -36,6 +37,7 @@ namespace NDDC_MRMS_App.Pages.PatientRecords
             Vitals = patientDb.GetVitals(EmpId.Value);
             MedicalBio = patientDb.GetMedicalBio(EmpId.Value);
             Investigations = patientDb.AllInvestigations(EmpId.Value);
+            MedicalReport = patientDb.GetAllMedicalReports(EmpId.Value);
             
         }
     }
