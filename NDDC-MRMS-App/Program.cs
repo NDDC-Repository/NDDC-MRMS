@@ -3,6 +3,7 @@ using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 using NddcMrmsLibrary.Data.EmployeeData;
 using NddcMrmsLibrary.Data.LabData;
+using NddcMrmsLibrary.Data.Patient;
 using NddcMrmsLibrary.Databases;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddTransient<IEmployeeData, SQLEmployee>();
 builder.Services.AddTransient<ILabsData, SQLLabs>();
+builder.Services.AddTransient<IPatientData, SqlPatient>();
 
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
         .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureADB2C"));

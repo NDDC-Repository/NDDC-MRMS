@@ -31,18 +31,18 @@
                 </div>
             </div><!-- end card header -->
             <div class="card-body">
-                    <form action="javascript:void(0);">
+                    <form method="post">
                         <div class="row">
                             <div class="col-8">
                                 <div class="mb-3">
                                     <label for="firstNameinput" class="form-label">Category Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Title (75 char.)" id="firstNameinput">
+                                    <input type="text" class="form-control" asp-for="@Model.ExamCat.ExaminationCategory" placeholder="Enter Title (75 char.)" id="firstNameinput">
                                 </div>
                             </div><!--end col-->
                             <div class="col-8">
                                 <div class="mb-3">
                                     <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <input class="form-check-input" type="checkbox" asp-for="@Model.ExamCat.ShowOnPortal" id="flexCheckDefault">
                                       <label class="form-check-label" for="flexCheckDefault">
                                         Show On Labs Portal
                                       </label>

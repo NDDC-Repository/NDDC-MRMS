@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{EmpId:int?}"
 @model NDDC_MRMS_App.Pages.PatientRecords.ProfileModel
 @{
 }
@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="col-md">
                                         <div>
-                                            <h4 class="fw-bold">Employee Full Names</h4>
+                                            <h4 class="fw-bold">@Model.Employee.FirstName @Model.Employee.LastName</h4>
                                             <div class="hstack gap-3 flex-wrap align-items-center">
                                                 <!--Tab List-->
                                                 <ul class="nav nav-tabs" role="tablist">
@@ -53,8 +53,6 @@
                                                         </a>
                                                     </li>
                                                 </ul>
-                                                <div class="badge rounded-pill bg-primary fs-12">New</div>
-                                                <div class="badge rounded-pill bg-success fs-12">High</div>
                                             </div>
                                             @*<div class="hstack gap-3 flex-wrap">
                                                 <div><i class="ri-building-line align-bottom me-1"></i> <div class="badge rounded-pill bg-primary fs-12">Staff Bio</div></div>
@@ -75,19 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-auto">
-                                <div class="hstack gap-1 flex-wrap">
-                                    <button type="button" class="btn py-0 fs-16 favourite-btn active">
-                                        <i class="ri-star-fill"></i>
-                                    </button>
-                                    <button type="button" class="btn py-0 fs-16 text-body">
-                                        <i class="ri-share-line"></i>
-                                    </button>
-                                    <button type="button" class="btn py-0 fs-16 text-body">
-                                        <i class="ri-flag-line"></i>
-                                    </button>
-                                </div>
-                            </div>
+                            
                         </div>
 
 
@@ -162,27 +148,27 @@
                                 <tbody>
                                     <tr>
                                         <th class="ps-0" scope="row">First Name :</th>
-                                        <td class="text-muted">Anna Adame</td>
+                                        <td class="text-muted">@Model.Employee.FirstName</td>
                                         <th class="ps-0" scope="row">Last Name :</th>
-                                        <td class="text-muted">Anna Adame</td>
+                                        <td class="text-muted">@Model.Employee.LastName</td>
                                         <th class="ps-0" scope="row">Other Name(s) :</th>
-                                        <td class="text-muted">Anna Adame</td>
+                                        <td class="text-muted">@Model.Employee.OtherNames</td>
                                     </tr>
                                     <tr>
                                         <th class="ps-0" scope="row">Gender :</th>
-                                        <td class="text-muted">Male</td>
+                                        <td class="text-muted">@Model.Employee.Gender</td>
                                         <th class="ps-0" scope="row">Marital Status :</th>
-                                        <td class="text-muted">Married</td>
+                                        <td class="text-muted">@Model.Employee.MaritalStatus</td>
                                         <th class="ps-0" scope="row">Age :</th>
-                                        <td class="text-muted">38</td>
+                                        <td class="text-muted">@Model.Employee.DateOfBirth</td>
                                     </tr>
                                     <tr>
                                         <th class="ps-0" scope="row">Address :</th>
-                                        <td class="text-muted">Male</td>
+                                        <td class="text-muted">@Model.Employee.Address</td>
                                         <th class="ps-0" scope="row">Phone :</th>
-                                        <td class="text-muted">+(1) 987 6543</td>
+                                        <td class="text-muted">@Model.Employee.Phone</td>
                                         <th class="ps-0" scope="row">Email :</th>
-                                        <td class="text-muted">emai@email.com</td>
+                                        <td class="text-muted">@Model.Employee.Email</td>
                                     </tr>
 
 
@@ -263,53 +249,32 @@
                        <table class="table table-nowrap table-striped-columns mb-0">
                            <thead class="table-light">
                                <tr>
-                                   <th scope="col">
-                                       <div class="form-check">
-                                           <input class="form-check-input" type="checkbox" value="" id="cardtableCheck">
-                                    <label class="form-check-label" for="cardtableCheck"></label></div></th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Conducted By</th>
-                                    <th scope="col">Status</th>
+                                  
+                                    <th scope="col">S/N</th>
+                                    <th scope="col">Temperature</th>
+                                    <th scope="col">Pulse</th>
+                                <th scope="col">SPo2</th>
+                                <th scope="col">BP</th>
+                                <th scope="col">Date</th>
                                     <th scope="col">Action</th></tr></thead>
                             <tbody>
+                            @foreach (var item in Model.Vitals)
+                            {
                                 <tr>
                                     <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="cardtableCheck01">
-                                            <label class="form-check-label" for="cardtableCheck01"></label>
-                                        </div>
-                                        </td>
-                                        
-                                    <td>07 Oct, 2021</td>
-                                    <td>William Elmore</td>
-                                    <td><span class="badge bg-success">Good</span></td>
-                                    <td><button type="button" class="btn btn-sm btn-light">Details</button></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="cardtableCheck02">
-                                            <label class="form-check-label" for="cardtableCheck02"></label></div></td>
-                                    
-                                    <td>07 Oct, 2021</td>
-                                    <td>Georgie Winters</td>
-                                    <td><span class="badge bg-success">Good</span></td>
-                                    <td><button type="button" class="btn btn-sm btn-light">Details</button></td></tr>
-                                <tr><td><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="cardtableCheck03">
-                                            <label class="form-check-label" for="cardtableCheck03"></label></div></td>
-                                    
-                                    <td>06 Oct, 2021</td>
-                                    <td>Whitney Meier</td>
-                                    <td><span class="badge bg-danger">Poor</span></td>
-                                    <td><button type="button" class="btn btn-sm btn-light">Details</button></td></tr>
-                                <tr><td><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="cardtableCheck04">
-                                            <label class="form-check-label" for="cardtableCheck04"></label></div></td>
-                                    
-                                    <td>05 Oct, 2021</td>
-                                    <td>Justin Maier</td>
-                                    <td><span class="badge bg-success">Good</span></td>
-                                    <td><button type="button" class="btn btn-sm btn-light">Details</button>
+                                        @item.SrNo
                                     </td>
+
+                                    <td>@item.Temp</td>
+                                    <td>@item.Pulse</td>
+                                    <td>@item.Oxygen</td>
+                                    <td>@item.Systolic/@item.Diastolic</td>
+                                    <td>@item.DateAdded</td>
+                                    <td><button type="button" class="btn btn-sm btn-light">Edit</button></td>
                                 </tr>
+                            }
+                                
+                                
                         </tbody>
                     </table>
                 </div>

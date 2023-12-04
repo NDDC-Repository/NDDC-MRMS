@@ -44,108 +44,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">1</a></th>
-                                    <td>Opthamoligical Review</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">2</a></th>
-                                    <td>Ear, Nose and Throat Review</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">3</a></th>
-                                    <td>Dental Review</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">4</a></th>
-                                    <td>Thyroid Function Test</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">5</a></th>
-                                    <td>Lung Function Test</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">6</a></th>
-                                    <td>Gastrointestinal Review</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">7</a></th>
-                                    <td>Haematological Review</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">8</a></th>
-                                    <td>Diabetic Profile</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">8</a></th>
-                                    <td>Cardiiac Function Test</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">9</a></th>
-                                    <td>Coronary Risk Markers</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">10</a></th>
-                                    <td>Lipid Profile</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">11</a></th>
-                                    <td>Liver Function Test</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">12</a></th>
-                                    <td>Infection Screening</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">13</a></th>
-                                    <td>Bone Profile</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">14</a></th>
-                                    <td>Kidney Function Test</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">15</a></th>
-                                    <td>Fitness Assesment</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">16</a></th>
-                                    <td>Well Man/Woman Status</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">17</a></th>
-                                    <td>Cancer Screening</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">18</a></th>
-                                    <td>General Consultation</td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-medium">19</a></th>
-                                    <td>Others </td>
-                                    <td><a href="/Settings/ChecklistItems">View</a></td>
-                                </tr>
-
-
+                                @foreach (var item in Model.ExamCategories)
+                                {
+                                    <tr>
+                                        <th scope="row"><a href="#" class="fw-medium">@item.SrNo</a></th>
+                                        <td>@item.ExaminationCategory</td>
+                                        <td><a asp-page="ChecklistItems" asp-route-Id="@item.Id">View</a></td>
+                                    </tr>
+                                }
+                                
                             </tbody>
                         </table>
                     </div>
