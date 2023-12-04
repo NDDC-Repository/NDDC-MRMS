@@ -48,9 +48,9 @@ namespace NddcMrmsLibrary.Data.Patient
         {
             db.SaveData("Insert Into Investigations (EmpId, TestDescription, ConductedBy, DateConducted) Values (@EmpId, @TestDescription, @ConductedBy, @DateConducted)", new { invest.EmpId, invest.TestDescription, invest.ConductedBy, invest.DateConducted }, connectionStringName, false);
         }
-        public List<MyInvestigationsModel> AllInvestigations()
+        public List<MyInvestigationsModel> AllInvestigations(int empId)
         {
-            return db.LoadData<MyInvestigationsModel, dynamic>("Select Id, EmpId, TestDescription, ConductedBy, DateConducted From Investigations Order By Id Desc ", new { }, connectionStringName, false).ToList();
+            return db.LoadData<MyInvestigationsModel, dynamic>("SELECT Investigations.Id, ROW_NUMBER() OVER (ORDER BY Investigations.Id DESC) As SrNo, Investigations.EmpId, Investigations.ExaminationYear, Investigations.ExaminationTypeId, Investigations.TestResult, Investigations.RefRange, Investigations.Flag, Investigations.ResultUnit, ExaminationTypes.ExaminationType FROM Investigations Left JOIN ExaminationTypes ON Investigations.ExaminationTypeId = ExaminationTypes.Id Where Investigations.EmpId = @empId Order By Investigations.Id DESC", new { empId }, connectionStringName, false).ToList();
         }
 
         public void AddInvestigationDetails(MyInvestigationDetailsModel investDet)
@@ -79,6 +79,12 @@ namespace NddcMrmsLibrary.Data.Patient
         public List<MyExaminationTypeModel> GetAllExaminationTypes(int examCatId)
         {
             return db.LoadData<MyExaminationTypeModel, dynamic>("Select ROW_NUMBER() OVER (ORDER BY Id DESC) As SrNo, Id, ExaminationCategoryId, ExaminationType From ExaminationTypes Where ExaminationCategoryId = @examCatId Order By Id Desc ", new { examCatId }, connectionStringName, false).ToList();
+        }
+
+        //Reports
+        public List<MyMedicalReportModel> GetAllMedicalReports(int empId)
+        {
+            return db.LoadData<MyMedicalReportModel, dynamic>("Select ROW_NUMBER() OVER (ORDER BY Id DESC) As SrNo, EmpId, Id, ReportTitle, ExaminationYear, FileName From MedicalReport Where EmpId = @empId Order By Id DESC", new { empId }, connectionStringName, false).ToList();
         }
     }
 }

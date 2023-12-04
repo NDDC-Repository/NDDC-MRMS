@@ -12,10 +12,11 @@ namespace NddcMrmsLibrary.Data.Patient
         List<MyMedicalBioModel> GetMedicalBio(int empId);
         void AddVitals(MyVitalsModel vitals);
         List<MyInvestigationDetailsModel> AllInvestigationDetails();
-        List<MyInvestigationsModel> AllInvestigations();
+        List<MyInvestigationsModel> AllInvestigations(int empId);
         List<MyExaminationCategoryModel> GetAllExaminationCategories();
         List<MyExaminationTypeModel> GetAllExaminationTypes(int examCatId);
         MyVitalsModel GetVitalDetails(int Id);
         List<MyVitalsModel> GetVitals(int empId);
+        List<MyMedicalReportModel> GetAllMedicalReports(int empId);
     }
 }

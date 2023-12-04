@@ -26,5 +26,13 @@ namespace NddcMrmsLibrary.Data.Helper
 
             //return (T)Convert.ChangeType(myValue, typeof(T));
         }
+        public int GetAge(DateTime dateOfBirth)
+        {
+            var today = DateTime.Today;
+            DateTime DoB = dateOfBirth;
+            int age = today.Year - DoB.Year;
+
+            return age;
+        }
     }
 }
