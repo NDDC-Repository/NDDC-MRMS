@@ -326,15 +326,42 @@
         </div>
     </div>
     <div class="tab-pane" id="medReport" role="tabpanel">
-        <h6>Settings</h6>
-        <p class="mb-0">
-            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
-            art party before they sold out master cleanse gluten-free squid
-            scenester freegan cosby sweater. Fanny pack portland seitan DIY,
-            art party locavore wolf cliche high life echo park Austin. Cred
-            vinyl keffiyeh DIY salvia PBR, banh mi before they sold out
-            farm-to-table VHS.
-        </p>
+          <div class="card">
+            <div class="card-header">
+                <span class="float-end"><button type="button"  class="btn rounded-pill btn-success waves-effect waves-light">Upload Report</button></span>
+                <h6 class="card-title mb-0">Medical Reports</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive table-card">
+                    <table class="table table-nowrap table-striped-columns mb-0">
+                        <thead class="table-light">
+                            <tr>
+
+                                <th scope="col">S/N</th>
+                                <th scope="col">Examination Year</th>
+                                <th scope="col">Report Title</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.MedicalReport)
+                            {
+                                <tr>
+
+                                    <td><a href="#" class="fw-semibold">@item.SrNo</a></td>
+                                    <td>@item.ExaminationYear</td>
+                                    <td>@item.ReportTitle</td>
+                                    <td><a href="https://d1z885rebbc6q3.cloudfront.net/@item.FileName" target="_blank" >View File</a></td>
+                                    
+                                </tr>
+                            }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     </div>
 
 </div>
