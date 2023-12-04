@@ -189,46 +189,43 @@
                            <h4 class="card-title mb-0 flex-grow-1">Medical Bio</h4>
                        </div>
                        <div class="card-body">
-                           <div class="table-responsive">
-                               <table class="table table-borderless mb-0">
+                           <div class="table-responsive table-card">
+                               <table class="table table-nowrap table-striped-columns mb-0">
+                                   <thead class="table-light">
+                                        <tr>
+                                            
+                                            <th scope="col">S/N</th>
+                                            <th scope="col">Height</th>
+                                            <th scope="col">Blood Group</th>
+                                            <th scope="col">Genotype</th>
+                                            <th scope="col">Weight</th>
+                                            <th scope="col">BMI</th>
+                                            <th scope="col">Disabilities</th>
+                                            <th scope="col">Added By</th>
+                                            <th scope="col">Date Added</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
                                    <tbody>
-                                       <tr>
-                                           <th class="ps-0" scope="row">Height :</th>
-                                           <td class="text-muted">6ft</td>
-                                       </tr>
-                                       <tr>
-                                            <th class="ps-0" scope="row">Weight :</th>
-                                            <td class="text-muted">83Kg</td>
+                                       @foreach (var item in Model.MedicalBio)
+                                       {
+                                           <tr>
+                                            
+                                            <td>@item.SrNo</td>
+                                            <td>@item.Height</td>
+                                            <td>@item.BloodGroup</td>
+                                            <td>@item.Genotype</td>
+                                            <td>@item.Weight</td>
+                                            <td>@item.BMI</td>
+                                            <td>@item.Disabilities</td>
+                                            <td>@item.AddedBy</td>
+                                            <td>@item.DateAdded</td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-light">Edit</button>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <th class="ps-0" scope="row">Blood Group :</th>
-                                            <td class="text-muted">0+</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-0" scope="row">Genotype :</th>
-                                            <td class="text-muted">AA</td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <th class="ps-0" scope="row">Blood Pressure :</th>
-                                            <td class="text-muted">153/109mmhg</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-0" scope="row">Pulse :</th>
-                                            <td class="text-muted">73b/m</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-0" scope="row">Respiration :</th>
-                                            <td class="text-muted">16c/m</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-0" scope="row">BMI :</th>
-                                            <td class="text-muted">15.7</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="ps-0" scope="row">Disabilities :</th>
-                                            <td class="text-muted">None</td>
-                                        </tr>
+                                       }
+                                       
                                     </tbody>
                                 </table>
                             </div>

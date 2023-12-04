@@ -8,6 +8,7 @@ namespace NddcMrmsLibrary.Model.Patient
 {
 	public class MyMedicalBioModel
 	{
+        public int SrNo { get; set; }
         public int Id { get; set; }
         public int EmpId { get; set; }
         public string EmployeeCode { get; set; }
