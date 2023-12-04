@@ -11,7 +11,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="/Settings/Checklist">Checklist</a></li>
-                    <li class="breadcrumb-item active">Checklist Examination Items</li>
+                    <li class="breadcrumb-item active">Medical Examination Types</li>
                 </ol>
             </div>
 
@@ -23,10 +23,10 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">View Test Examinaion</h4>
+                <h4 class="card-title mb-0 flex-grow-1">@Model.ExamCategory Examination Types</h4>
                 <div class="flex-shrink-0">
                     <div class="form-check form-switch form-switch-right form-switch-md">
-                        <a class="btn btn-primary" href="/Settings/AddExamination" >Add Examination</a>
+                        <a class="btn btn-primary" asp-page="AddExamination" asp-route-Id="@Model.MyId" >Add Examination Type</a>
                     </div>
                 </div>
             </div><!-- end card header -->

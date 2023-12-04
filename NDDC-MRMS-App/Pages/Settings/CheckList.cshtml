@@ -23,7 +23,7 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Checklist Categories</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Medical Examination Categories</h4>
                 <div class="flex-shrink-0">
                     <div class="form-check form-switch form-switch-right form-switch-md">
                         <a class="btn btn-primary" href="/Settings/AddCategory" >Add Category</a>
@@ -40,6 +40,7 @@
                                 <tr>
                                     <th scope="col">S/N</th>
                                     <th scope="col">Category Name</th>
+                                    <th scope="col">Enabled</th>
                                     
                                 </tr>
                             </thead>
@@ -49,7 +50,8 @@
                                     <tr>
                                         <th scope="row"><a href="#" class="fw-medium">@item.SrNo</a></th>
                                         <td>@item.ExaminationCategory</td>
-                                        <td><a asp-page="ChecklistItems" asp-route-Id="@item.Id">View</a></td>
+                                        <td><input class="form-check-input" disabled="true" type="checkbox" asp-for="@item.ShowOnPortal" id="flexCheckDefault"></td>
+                                        <td><a asp-page="ChecklistItems" asp-route-Id="@item.Id">View Examination Types</a></td>
                                     </tr>
                                 }
                                 

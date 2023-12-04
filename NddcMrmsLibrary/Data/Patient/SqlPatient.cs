@@ -69,12 +69,12 @@ namespace NddcMrmsLibrary.Data.Patient
         }
         public List<MyExaminationCategoryModel> GetAllExaminationCategories()
         {
-            return db.LoadData<MyExaminationCategoryModel, dynamic>("Select ROW_NUMBER() OVER (ORDER BY Id DESC) As SrNo, Id, ExaminationCategory From ExaminationCategory Order By Id Desc ", new { }, connectionStringName, false).ToList();
+            return db.LoadData<MyExaminationCategoryModel, dynamic>("Select ROW_NUMBER() OVER (ORDER BY Id DESC) As SrNo, Id, ExaminationCategory, ShowOnPortal  From ExaminationCategory Order By Id Desc ", new { }, connectionStringName, false).ToList();
         }
 
         public void AddExaminationType(MyExaminationTypeModel examType)
         {
-            db.SaveData("Insert Into ExaminationTypes (ExaminationCategoryId, ExaminationType) Values(@ExaminationCategoryId, ExaminationType)", new { examType }, connectionStringName, false);
+            db.SaveData("Insert Into ExaminationTypes (ExaminationCategoryId, ExaminationType) Values(@ExaminationCategoryId, @ExaminationType)", new { examType.ExaminationCategoryId, examType.ExaminationType }, connectionStringName, false);
         }
         public List<MyExaminationTypeModel> GetAllExaminationTypes(int examCatId)
         {

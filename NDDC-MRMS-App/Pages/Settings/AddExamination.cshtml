@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{Id:int?}"
 @model NDDC_MRMS_App.Pages.Settings.AddChecklistItemModel
 @{
 }
@@ -33,12 +33,12 @@
                 </div>
             </div><!-- end card header -->
             <div class="card-body">
-                    <form action="javascript:void(0);">
+                    <form method="post">
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label for="firstNameinput" class="form-label">Examinaation Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Title (75 char.)" id="firstNameinput">
+                                    <input asp-for="@Model.ExamType.ExaminationType" type="text" class="form-control" placeholder="Enter Title (75 char.)" id="firstNameinput">
                                 </div>
                             </div>
 
