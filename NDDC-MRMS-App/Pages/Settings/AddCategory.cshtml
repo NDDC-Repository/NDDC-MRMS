@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{Id:int?}"
 @model NDDC_MRMS_App.Pages.Settings.AddCategoryModel
 @{
 }
@@ -33,10 +33,11 @@
             <div class="card-body">
                     <form method="post">
                         <div class="row">
+                        <input type="text" class="form-control" hidden="true" asp-for="@Model.ExamCat.Id" id="firstNameinput">
                             <div class="col-8">
                                 <div class="mb-3">
                                     <label for="firstNameinput" class="form-label">Category Name</label>
-                                    <input type="text" class="form-control" asp-for="@Model.ExamCat.ExaminationCategory" placeholder="Enter Title (75 char.)" id="firstNameinput">
+                                    <input type="text" class="form-control" asp-for="@Model.ExamCat.ExaminationCategory" placeholder="" id="firstNameinput">
                                 </div>
                             </div><!--end col-->
                             <div class="col-8">
@@ -52,7 +53,7 @@
 
                         <div class="col-lg-8">
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
                                 </div>
                             </div><!--end col-->
                             </div>

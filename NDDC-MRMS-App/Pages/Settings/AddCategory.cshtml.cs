@@ -9,6 +9,9 @@ namespace NDDC_MRMS_App.Pages.Settings
     {
         private readonly IPatientData patienDb;
 
+        [TempData]
+        public string FormResult { get; set; }
+
         [BindProperty]
         public MyExaminationCategoryModel ExamCat { get; set; }
 
@@ -16,13 +19,25 @@ namespace NDDC_MRMS_App.Pages.Settings
         {
             this.patienDb = patienDb;
         }
-        public void OnGet()
+        public void OnGet(int? Id)
         {
+            if (Id.HasValue)
+            {
+                ExamCat = patienDb.GetExaminationCategory(Id.Value);
+            }
         }
 
         public IActionResult OnPost()
         {
-            patienDb.AddExaminationCategory(ExamCat);
+            if (ExamCat.Id == 0)
+            {
+                patienDb.AddExaminationCategory(ExamCat);
+                FormResult = $"A New Examination Category ({ExamCat.ExaminationCategory}) has been Successfully Added";
+            }
+            else
+            {
+                patienDb.UpdateExaminationCategory(ExamCat);
+            }
 
             return RedirectToPage("CheckList");
         }

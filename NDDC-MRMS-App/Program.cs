@@ -6,16 +6,20 @@ using NddcMrmsLibrary.Data.Helper;
 using NddcMrmsLibrary.Data.LabData;
 using NddcMrmsLibrary.Data.Patient;
 using NddcMrmsLibrary.Databases;
+using Syncfusion.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//Step-1 In Adding Blazor
+builder.Services.AddServerSideBlazor();
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddTransient<IEmployeeData, SQLEmployee>();
 builder.Services.AddTransient<ILabsData, SQLLabs>();
 builder.Services.AddTransient<IPatientData, SqlPatient>();
 builder.Services.AddTransient<IHelperData, SqlHelper>();
+builder.Services.AddSyncfusionBlazor();
 
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
         .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureADB2C"));
@@ -35,6 +39,7 @@ builder.Services.AddRazorPages(options => {
 .AddMicrosoftIdentityUI();
 
 var app = builder.Build();
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjk1MzIyMEAzMjMzMmUzMDJlMzBJZzd0bW5GTWtrL2ZoeURxdmFGS2tDY2VoWThQUU8rUkJobC8yK0thRzhvPQ==");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -53,6 +58,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+//step-2 in adding Blazor
+app.MapBlazorHub();
 app.MapControllers();
 
 app.Run();

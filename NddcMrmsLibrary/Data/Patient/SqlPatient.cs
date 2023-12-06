@@ -71,6 +71,22 @@ namespace NddcMrmsLibrary.Data.Patient
         {
             return db.LoadData<MyExaminationCategoryModel, dynamic>("Select ROW_NUMBER() OVER (ORDER BY Id DESC) As SrNo, Id, ExaminationCategory, ShowOnPortal  From ExaminationCategory Order By Id Desc ", new { }, connectionStringName, false).ToList();
         }
+        public MyExaminationCategoryModel GetExaminationCategory(int Id)
+        {
+            return db.LoadData<MyExaminationCategoryModel, dynamic>("Select Id, ExaminationCategory, ShowOnPortal  From ExaminationCategory Where Id = @Id", new { Id }, connectionStringName, false).FirstOrDefault();
+        }
+        public void UpdateExaminationCategory(MyExaminationCategoryModel examCat)
+        {
+            db.SaveData("Update ExaminationCategory Set ExaminationCategory = @ExaminationCategory, ShowOnPortal = @ShowOnPortal Where Id = @Id", new { examCat.Id, examCat.ExaminationCategory, examCat.ShowOnPortal }, connectionStringName, false);
+        }
+        public void UpdateExaminationType(MyExaminationTypeModel examType)
+        {
+            db.SaveData("Update ExaminationTypes Set ExaminationType = @ExaminationType Where Id = @Id", new { examType.ExaminationType, examType.Id }, connectionStringName, false);
+        }
+        public MyExaminationTypeModel GetExaminationType(int Id)
+        {
+            return db.LoadData<MyExaminationTypeModel, dynamic>("Select Id, ExaminationCategoryId, ExaminationType  From ExaminationTypes Where Id = @Id", new { Id }, connectionStringName, false).FirstOrDefault();
+        }
 
         public void AddExaminationType(MyExaminationTypeModel examType)
         {
@@ -80,6 +96,7 @@ namespace NddcMrmsLibrary.Data.Patient
         {
             return db.LoadData<MyExaminationTypeModel, dynamic>("Select ROW_NUMBER() OVER (ORDER BY Id DESC) As SrNo, Id, ExaminationCategoryId, ExaminationType From ExaminationTypes Where ExaminationCategoryId = @examCatId Order By Id Desc ", new { examCatId }, connectionStringName, false).ToList();
         }
+
 
         //Reports
         public List<MyMedicalReportModel> GetAllMedicalReports(int empId)

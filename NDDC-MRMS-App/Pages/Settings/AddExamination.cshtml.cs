@@ -15,16 +15,28 @@ namespace NDDC_MRMS_App.Pages.Settings
         {
             this.patientDb = patientDb;
         }
-        public void OnGet()
+        public void OnGet(int? myId)
         {
+            if (myId.HasValue)
+            {
+                ExamType = patientDb.GetExaminationType(myId.Value);
+            }
         }
 
-        public IActionResult OnPost(int? Id)
+        public IActionResult OnPost(int? myId)
         {
-            ExamType.ExaminationCategoryId = Id.Value;
-            patientDb.AddExaminationType(ExamType);
+            if (ExamType.Id == 0)
+            {
+                ExamType.ExaminationCategoryId = myId.Value;
+                patientDb.AddExaminationType(ExamType);
+            }
+            else
+            {
+                patientDb.UpdateExaminationType(ExamType);
+            }
+            
 
-            return RedirectToPage("ChecklistItems", new { Id = Id.Value });
+            return RedirectToPage("ChecklistItems", new { Id = myId.Value });
         }
     }
 }

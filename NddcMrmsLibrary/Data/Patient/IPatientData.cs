@@ -18,5 +18,9 @@ namespace NddcMrmsLibrary.Data.Patient
         MyVitalsModel GetVitalDetails(int Id);
         List<MyVitalsModel> GetVitals(int empId);
         List<MyMedicalReportModel> GetAllMedicalReports(int empId);
+        MyExaminationCategoryModel GetExaminationCategory(int Id);
+        void UpdateExaminationCategory(MyExaminationCategoryModel examCat);
+        void UpdateExaminationType(MyExaminationTypeModel examType);
+        MyExaminationTypeModel GetExaminationType(int Id);
     }
 }

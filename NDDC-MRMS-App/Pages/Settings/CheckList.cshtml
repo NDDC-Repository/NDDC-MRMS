@@ -21,6 +21,8 @@
 
 <div class="row">
     <div class="col-xl-12">
+        <h5 style="color:green">@TempData["FormResult"]</h5>
+        <br />
         <div class="card">
             <div class="card-header align-items-center d-flex">
                 <h4 class="card-title mb-0 flex-grow-1">Medical Examination Categories</h4>
@@ -52,6 +54,7 @@
                                         <td>@item.ExaminationCategory</td>
                                         <td><input class="form-check-input" disabled="true" type="checkbox" asp-for="@item.ShowOnPortal" id="flexCheckDefault"></td>
                                         <td><a asp-page="ChecklistItems" asp-route-Id="@item.Id">View Examination Types</a></td>
+                                        <td><a asp-page="AddCategory" asp-route-Id="@item.Id">Edit</a></td>
                                     </tr>
                                 }
                                 

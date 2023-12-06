@@ -142,7 +142,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title mb-3">Info</h5>
+                        <h5 class="card-title mb-3">Basic Staff Information</h5>
                         <div class="table-responsive">
                             <table class="table table-borderless mb-0">
                                 <tbody>
@@ -177,6 +177,54 @@
                         </div>
                     </div><!-- end card body -->
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Systolic Blood Pressure
+                    </div>
+                    <div class="card-body">
+                        <component type="typeof(NDDC_MRMS_App.MyComponents.SystolicGuage)" render-mode="ServerPrerendered" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Diastolic Blood Pressure
+                    </div>
+                    <div class="card-body">
+                        <component type="typeof(NDDC_MRMS_App.MyComponents.DiastolicGuage)" render-mode="ServerPrerendered" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        BMI
+                    </div>
+                    <div class="card-body">
+                        <component type="typeof(NDDC_MRMS_App.MyComponents.BMIGuage)" render-mode="ServerPrerendered" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Cholestrol
+                    </div>
+                    <div class="card-body">
+                        <component type="typeof(NDDC_MRMS_App.MyComponents.BMIGuage)" render-mode="ServerPrerendered" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div clss="row">
+            <div class="col-12">
+                <component type="typeof(NDDC_MRMS_App.MyComponents.HealthChart)" render-mode="ServerPrerendered" />
             </div>
         </div>
     </div>
@@ -365,3 +413,6 @@
     </div>
 
 </div>
+
+@* <component type="typeof(NDDC_MRMS_Labs.MyComponents.MedicalBio)" param-EmpId="@Model.EmpId" render-mode="ServerPrerendered" /> *@
+
