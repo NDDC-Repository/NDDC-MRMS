@@ -170,52 +170,33 @@
                                     <i data-feather="user" class="icon-dual"></i> <span data-key="t-dashboards">Clients</span>
                                 </a>
                             </li>
-
-                            <!-- Data Manager Menu -->
-                            @* <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Data Manager</span></li>
-                            <li class="nav-item">
-                                <a class="nav-link menu-link" href="/Reports/ReportsList">
-                                    <i data-feather="archive" class="icon-dual"></i> <span data-key="t-dashboards">Investigation Types </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link menu-link" href="/Reports/ReportsList">
-                                    <i data-feather="archive" class="icon-dual"></i> <span data-key="t-dashboards">Medical History </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link menu-link" href="/Reports/ReportsList">
-                                    <i data-feather="archive" class="icon-dual"></i> <span data-key="t-dashboards">Allergies </span>
-                                </a>
-                            </li> *@
-                           
                             <!-- Settings Menu -->
-                            <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Settings</span></li>
+                            <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-menu">Settings</span></li>
                             <li class="nav-item">
-                                <a class="nav-link menu-link" href="/Settings/Checklist">
-                                    <i data-feather="archive" class="icon-dual"></i> <span data-key="t-dashboards">Investigation Checklist </span>
+                                <a class="nav-link menu-link @ViewData["Departments"]" href="/Settings/Checklist">
+                                    <i data-feather="archive" class="icon-dual"></i> <span data-key="t-grid">Investigation Checklist </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link menu-link @ViewData["JobTitles"]" href="/Settings/Labs">
-                                    <i data-feather="users" class="icon-dual"></i> <span data-key="t-dashboards">Labs</span>
+                                <a class="nav-link menu-link @ViewData["Pensions"]" href="/Settings/Labs">
+                                    <i data-feather="users" class="icon-dual"></i> <span data-key="t-dropdown">Test Centers</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarTables" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarTables">
-                                <i data-feather="align-justify" class="icon-dual"></i> <span data-key="t-dashboards">Vital Signs Borders</span>
-                                </a>
-                            <div class="menu-dropdown collapse show" id="sidebarTables" style="">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="/Settings/BloodPressure" class="nav-link" data-key="t-basic-tables">Blood Pressure Metrics</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/Settings/BMI" class="nav-link" data-key="t-grid-js">BMI Metrics</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+                                <div class="px-4 py-3 menu-link" href="#sidebarTables" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarTables">
+                                    <i data-feather="life-buoy" class="icon-dual"></i> <span class="text-secondary-emphasis" data-key="t-dashboards" >Vital Signs Borders</span>
+                                    </div>
+                                <div class="menu-dropdown collapse show" id="sidebarTables" style="">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="/Settings/BloodPressure" class="nav-link menu-link" data-key="t-carousel">Blood Pressure Metrics</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Settings/BMI" class="nav-link menu-link" data-key="t-cards">BMI Metrics</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
                             @* <li class="nav-item">
                                 <a class="nav-link menu-link @ViewData["Departments"]" href="/Company/Departments">
                                     <i data-feather="server" class="icon-dual"></i> <span data-key="t-dashboards">Drugs</span>
