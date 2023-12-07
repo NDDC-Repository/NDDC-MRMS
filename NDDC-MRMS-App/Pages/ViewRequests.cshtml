@@ -21,35 +21,117 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="card">
+        <h3 class="mb-5 text-center">Request Details</h3>
+        <div class="d-flex">
+            <div class="card col-lg-6 me-2">
             <div class="card-body">
-                <h5 class="card-title mb-5 text-center">View Request</h5>
-                <div class="table-responsive">
-                    <table class="table table-borderless mb-0">
-                        <tbody>
-                            <tr>
-                                <th class="ps-0" scope="row">Examination Year :</th>
+                <div class="table-responsive m-3">
+                    <table class="table caption-top">
+                        <caption class="fs-4">Original</caption>
+                        <tbody class="">
+                            <tr class="">
+                                <th class="ps-0" scope="row">Medical Examination Year:</th>
                                 <td class="text-muted">Anna Adame</td>
-                                <th class="ps-0" scope="row">Examination Type</th>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Process Name:</th>
                                 <td class="text-muted">Anna Adame</td>
-                            </tr>
-
-                            <tr>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Process Category:</th>
+                                <td class="text-muted">Anna Adame</td>
+                                </tr>
+                                <tr class="">
                                 <th class="ps-0" scope="row">Test Result</th>
                                 <td class="text-muted">Anna Adame</td>
+                                </tr>
+                                <tr class="">
                                 <th class="ps-0" scope="row">Result Unit</th>
                                 <td class="text-muted">Male</td>
-                            </tr>
-                            <tr>
-                                
+                                </tr>
+                                <tr class="">
                                 <th class="ps-0" scope="row">Reference Range</th>
                                 <td class="text-muted">Married</td>
+                                </tr>
+                                <tr class="">
                                 <th class="ps-0" scope="row">Flag</th>
                                 <td class="text-muted">38</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Date Conducted</th>
+                                <td class="text-muted">Married</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Time Reported</th>
+                                <td class="text-muted">38</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Conducted By</th>
+                                <td class="text-muted">Married</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Diagnosis Summary</th>
+                                <td class="text-muted">38</td>
                             </tr>
-                        </tbody>
-                    </table>
-                    <div class="d-flex justify-content-center mt-5" >
+                            </tbody>
+                         </table>
+                    </div>
+                    
+            </div><!-- end card body -->
+        </div>
+        <div class="card col-lg-6 ms-2">
+            <div class="card-body">
+                <div class="table-responsive m-3">
+                    <table class="table caption-top">
+                        <caption class="fs-4">Edited</caption>
+                        <tbody class="">
+                            <tr class="">
+                                <th class="ps-0" scope="row">Medical Examination Year:</th>
+                                <td class="text-muted">Anna Adame</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Process Name:</th>
+                                <td class="text-muted">Anna Adame</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Process Category:</th>
+                                <td class="text-muted">Anna Adame</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Test Result</th>
+                                <td class="text-muted">Anna Adame</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Result Unit</th>
+                                <td class="text-muted">Male</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Reference Range</th>
+                                <td class="text-muted">Married</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Flag</th>
+                                <td class="text-muted">38</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Date Conducted</th>
+                                <td class="text-muted">Married</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Time Reported</th>
+                                <td class="text-muted">38</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Conducted By</th>
+                                <td class="text-muted">Married</td>
+                                </tr>
+                                <tr class="">
+                                <th class="ps-0" scope="row">Diagnosis Summary</th>
+                                <td class="text-muted">38</td>
+                            </tr>
+                            </tbody>
+                         </table>
+                         <div class="d-flex justify-content-center mt-5" >
                         <div class="form-check text-success" data-bs-toggle="modal" data-bs-target="#Accept">
                             <button type="button" class="btn btn-md btn-success">Accept</button>
                         </div>
@@ -67,7 +149,7 @@
                                 </div>
                                 <div class="modal-footer">
                                 <a href="/Requests" type="button" class="btn btn-success">Yes</a>
-                                <button type="button" class="btn btn-secondary">No</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">No</button>
                                 </div>
                             </div>
                             </div>
@@ -81,22 +163,25 @@
                             <div class="modal-dialog pe-auto ">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="RejectLabel">Accept</h1>
+                                <h1 class="modal-title fs-5" id="RejectLabel">Reject</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                 Do you want to reject this request? 
                                 </div>
                                 <div class="modal-footer">
-                                <a type="button" class="btn btn-success pe-auto " href="/Requests">Yes</a>
-                                <button type="button" class="btn btn-secondary">No</button>
+                                <a type="button" class="btn btn-danger pe-auto " href="/Requests">Yes</a>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">No</button>
                                 </div>
                             </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
+                    
             </div><!-- end card body -->
         </div>
+        </div>
+        
     </div>
 </div>
