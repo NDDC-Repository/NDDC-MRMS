@@ -1,0 +1,195 @@
+﻿@page
+@model NDDC_MRMS_App.Pages.RequestsModel
+@{
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Requests</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);"> Main Menu</a></li>
+                    <li class="breadcrumb-item active">Requests</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <h3 class="mb-3"> All Investigations Update Requests</h3>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive"></div>
+                    <table class="table table-hover table-nowrap table-striped-columns mb-0">
+                        <thead class="table-light">
+                        <tr>
+                            <th scope="col">SrNo</th>
+                            <th scope="col">Requested By</th>
+                            <th scope="col">Requested From</th>
+                            <th scope="col">Request Type</th>
+                            <th scope="col">Date Requested</th>
+                            <th scope="col">View Request</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark Otto</td>
+                            <td>Olive Tree</td>
+                            <td>Edit</td>
+                            <td>12/22/2022</td>
+                            @*<td>
+                                <div class="form-check text-success" data-bs-toggle="modal" data-bs-target="#Accept">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="Accept" tabindex="-1" aria-labelledby="AcceptLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="AcceptLabel">Accept</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Do you want to accept this request? 
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Yes</button>
+                                        <button type="button" class="btn btn-secondary">No</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </td>*@
+
+                            <td>
+                              <a href="/ViewRequests" type="button" class="btn btn-sm btn-success">View</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Mark Otto</td>
+                            <td>Olive Tree</td>
+                            <td>Edit</td>
+                            <td>12/22/2022</td>
+                            
+                            <td>
+                              <a href="/ViewRequests" type="button" class="btn btn-sm btn-success">View</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Mark Otto</td>
+                            <td>Olive Tree</td>
+                            <td>Edit</td>
+                            <td>12/22/2022</td>
+                            
+                            <td>
+                              <a href="/ViewRequests" type="button" class="btn btn-sm btn-success">View</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+           
+        </div>
+    </div>
+</div>
+
+@*<div class="card">
+                <div class="card-header align-items-center d-flex">
+                    <h4 class="card-title mb-0 flex-grow-1">Delete Requests</h4>
+                    @*<div class="flex-shrink-0">
+                        <div class="form-check form-switch form-switch-right form-switch-md">
+                            <a class="btn btn-primary" href="/Settings/AddCategory">Add Category</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive"></div>
+                    <table class="table table-hover table-nowrap table-striped-columns mb-0">
+                        <thead class="table-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                            <th scope="col">Accept</th>
+                            <th scope="col">Reject</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>mdo</td>
+                            @*<td>
+                                <div class="form-check text-success" data-bs-toggle="modal" data-bs-target="#Accept">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="Accept" tabindex="-1" aria-labelledby="AcceptLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="AcceptLabel">Accept</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Do you want to accept this request? 
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Yes</button>
+                                        <button type="button" class="btn btn-secondary">No</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </td>
+
+                            <td>
+                              <button type="button" class="btn btn-sm btn-success">Accept</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-danger">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>fat</td>
+                            <td>
+                              <button type="button" class="btn btn-sm btn-success">Accept</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-danger">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td >Larry the Bird</td>
+                            <td>twitter</td>
+                            <td>twitter</td>
+                            <td>
+                              <button type="button" class="btn btn-sm btn-success">Accept</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-danger">Reject</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+</div>*@
