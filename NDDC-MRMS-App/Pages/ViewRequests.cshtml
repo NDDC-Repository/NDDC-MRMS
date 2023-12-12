@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{Id:int?}"
 @model NDDC_MRMS_App.Pages.ViewRequestsModel
 @{
 }
@@ -31,47 +31,47 @@
                         <tbody class="">
                             <tr class="">
                                 <th class="ps-0" scope="row">Medical Examination Year:</th>
-                                <td class="text-muted">Anna Adame</td>
+                                <td class="text-muted">@Model.Investigation.ExaminationYear</td>
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Process Name:</th>
-                                <td class="text-muted">Anna Adame</td>
+                                    <td class="text-muted">@Model.Investigation.ExaminationType</td>
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Process Category:</th>
-                                <td class="text-muted">Anna Adame</td>
+                                    <td class="text-muted">@Model.Investigation.ExaminationCategory</td>
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Test Result</th>
-                                <td class="text-muted">Anna Adame</td>
+                                    <td class="text-muted">@Model.Investigation.TestResult</td>
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Result Unit</th>
-                                <td class="text-muted">Male</td>
+                                    <td class="text-muted">@Model.Investigation.ResultUnit</td>
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Reference Range</th>
-                                <td class="text-muted">Married</td>
+                                    <td class="text-muted">@Model.Investigation.RefRange</td>
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Flag</th>
-                                <td class="text-muted">38</td>
+                                    <td class="text-muted">@Model.Investigation.Flag</td>
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Date Conducted</th>
-                                <td class="text-muted">Married</td>
+                                    <td class="text-muted">@Model.Investigation.DateConducted.ToShortDateString()</td>
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Time Reported</th>
-                                <td class="text-muted">38</td>
+                                    <td class="text-muted">@Model.Investigation.TimeReported.ToShortTimeString()</td>
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Conducted By</th>
-                                <td class="text-muted">Married</td>
+                                    <td class="text-muted">@Model.Investigation.ConductedBy</td>
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Diagnosis Summary</th>
-                                <td class="text-muted">38</td>
+                                    <td class="text-muted">@Model.Investigation.Summary</td>
                             </tr>
                             </tbody>
                          </table>
@@ -87,47 +87,124 @@
                         <tbody class="">
                             <tr class="">
                                 <th class="ps-0" scope="row">Medical Examination Year:</th>
-                                <td class="text-muted">Anna Adame</td>
+                                @if (string.Equals(Model.Investigation.ExaminationYear, Model.MyRequest.ExaminationYear))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.ExaminationYear</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.ExaminationYear</td>
+                                    }
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Process Name:</th>
-                                <td class="text-muted">Anna Adame</td>
+                                    @if (string.Equals(Model.Investigation.ExaminationType, Model.MyRequest.ExaminationType))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.ExaminationType</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.ExaminationType</td>
+                                    }
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Process Category:</th>
-                                <td class="text-muted">Anna Adame</td>
+                                    @if (string.Equals(Model.Investigation.ExaminationCategory, Model.MyRequest.ExaminationCategory))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.ExaminationCategory</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.ExaminationCategory</td>
+                                    }
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Test Result</th>
-                                <td class="text-muted">Anna Adame</td>
+                                    @if (string.Equals(Model.Investigation.TestResult, Model.MyRequest.Result))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.Result</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.Result</td>
+                                    }
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Result Unit</th>
-                                <td class="text-muted">Male</td>
+                                    @if (string.Equals(Model.Investigation.ResultUnit, Model.MyRequest.ResultUnit))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.ResultUnit</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.ResultUnit</td>
+                                    }
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Reference Range</th>
-                                <td class="text-muted">Married</td>
+                                    @if (string.Equals(Model.Investigation.RefRange, Model.MyRequest.RefRange))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.RefRange</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.RefRange</td>
+                                    }
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Flag</th>
-                                <td class="text-muted">38</td>
+                                    @if (string.Equals(Model.Investigation.Flag, Model.MyRequest.Flag))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.Flag</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.Flag</td>
+                                    }
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Date Conducted</th>
-                                <td class="text-muted">Married</td>
+                                    @if (string.Equals(Model.Investigation.DateConducted.ToShortDateString(), Model.MyRequest.DateConducted.ToShortDateString()))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.DateConducted.ToShortDateString()</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.DateConducted.ToShortDateString()</td>
+                                    }
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Time Reported</th>
-                                <td class="text-muted">38</td>
+                                    @if (string.Equals(Model.Investigation.TimeReported.ToShortTimeString(), Model.MyRequest.TimeReportedOn.ToShortTimeString()))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.TimeReportedOn.ToShortTimeString()</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.TimeReportedOn.ToShortTimeString()</td>
+                                    }
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Conducted By</th>
-                                <td class="text-muted">Married</td>
+                                    @if (string.Equals(Model.Investigation.ConductedBy, Model.MyRequest.RequestedBy))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.RequestedBy</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.RequestedBy</td>
+                                    }
                                 </tr>
                                 <tr class="">
                                 <th class="ps-0" scope="row">Diagnosis Summary</th>
-                                <td class="text-muted">38</td>
+                                    @if (string.Equals(Model.Investigation.Summary, Model.MyRequest.Summary))
+                                    {
+                                        <td class="text-muted">@Model.MyRequest.Summary</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@Model.MyRequest.Summary</td>
+                                    }
                             </tr>
                             </tbody>
                          </table>

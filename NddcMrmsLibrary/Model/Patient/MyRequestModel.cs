@@ -6,26 +6,31 @@ using System.Threading.Tasks;
 
 namespace NddcMrmsLibrary.Model.Patient
 {
-	public class MyInvestigationsModel
-	{
+    public class MyRequestModel
+    {
+       
+
         public int SrNo { get; set; }
         public int Id { get; set; }
+        public int InvestigationId { get; set; }
+        public string UserName { get; set; }
+        public string RequestedBy { get; set; }
+        public string RequestedFrom { get; set; }
+        public string RequestType { get; set; }
         public int ExaminationYear { get; set; }
-        public int EmpId { get; set; }
-        public string TestDescription { get; set; }
         public int ExaminationCategoryId { get; set; }
         public int ExaminationTypeId { get; set; }
-        public string TestResult { get; set; }
+        public string Result { get; set; }
         public string ResultUnit { get; set; }
         public string RefRange { get; set; }
         public string Flag { get; set; }
-        public DateTime DateConducted { get; set; } = DateTime.Now;
-        public DateTime TimeReported { get; set; } = DateTime.Now;
-        public string ConductedBy { get; set; }
+        public DateTime DateConducted { get; set; }
+        public DateTime TimeReportedOn { get; set; }
         public string Summary { get; set; }
+        public DateTime DateRequested { get; set; }
+        public string Status { get; set; }
 
         public string ExaminationType { get; set; }
         public string ExaminationCategory { get; set; }
-
     }
 }

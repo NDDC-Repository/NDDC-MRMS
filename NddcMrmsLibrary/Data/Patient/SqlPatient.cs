@@ -61,6 +61,10 @@ namespace NddcMrmsLibrary.Data.Patient
         {
             return db.LoadData<MyInvestigationDetailsModel, dynamic>("Select Id, InvestigationId, ProcessCategoryId, ProcessNameId, TestResult, ResultUnit, RefRange, Flag, DateConducted, TimeReported, ConductedBy, Summary From InvestigationDetails Order By Id Desc ", new { }, connectionStringName, false).ToList();
         }
+        public MyInvestigationsModel GetInvestigationDetails(int Id)
+        {
+            return db.LoadData<MyInvestigationsModel, dynamic>("SELECT Investigations.Id, Investigations.EmpId, Investigations.ExaminationYear, Investigations.ExaminationTypeId, Investigations.TestResult, Investigations.RefRange, Investigations.Flag, Investigations.ResultUnit, Investigations.Summary, ExaminationTypes.ExaminationType, ExaminationCategory.ExaminationCategory FROM Investigations INNER JOIN ExaminationTypes ON Investigations.ExaminationTypeId = ExaminationTypes.Id INNER JOIN ExaminationCategory ON Investigations.ExaminationCategoryId = ExaminationCategory.Id Where Investigations.Id = @Id Order By Investigations.Id DESC", new { Id }, connectionStringName, false).First();
+        }
 
         //Examination
         public void AddExaminationCategory(MyExaminationCategoryModel examCat)
@@ -102,6 +106,16 @@ namespace NddcMrmsLibrary.Data.Patient
         public List<MyMedicalReportModel> GetAllMedicalReports(int empId)
         {
             return db.LoadData<MyMedicalReportModel, dynamic>("Select ROW_NUMBER() OVER (ORDER BY Id DESC) As SrNo, EmpId, Id, ReportTitle, ExaminationYear, FileName From MedicalReport Where EmpId = @empId Order By Id DESC", new { empId }, connectionStringName, false).ToList();
+        }
+
+        //Requests
+        public List<MyRequestModel> GetAllRequests()
+        {
+            return db.LoadData<MyRequestModel, dynamic>("Select ROW_NUMBER() OVER (ORDER BY Id DESC) As SrNo, Id, UserName, RequestedBy, RequestedFrom, RequestType, DateRequested From Requests Order By Id DESC", new { }, connectionStringName, false).ToList();
+        }
+        public MyRequestModel GetRequestDetails(int Id)
+        {
+            return db.LoadData<MyRequestModel, dynamic>("SELECT Requests.Id, Requests.InvestigationId, Requests.UserName, Requests.RequestType, Requests.ExaminationYear, Requests.ExaminationCategoryId, Requests.ExaminationTypeId, Requests.Result, Requests.ResultUnit, Requests.RefRange, Requests.Flag, Requests.DateConducted, Requests.TimeReportedOn, Requests.Summary, ExaminationCategory.ExaminationCategory, ExaminationTypes.ExaminationType FROM Requests LEFT JOIN ExaminationCategory ON Requests.ExaminationCategoryId = ExaminationCategory.Id LEFT JOIN ExaminationTypes ON Requests.ExaminationTypeId = ExaminationTypes.Id Where Requests.Id = @Id", new { Id }, connectionStringName, false).FirstOrDefault();
         }
     }
 }

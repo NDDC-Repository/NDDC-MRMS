@@ -22,5 +22,8 @@ namespace NddcMrmsLibrary.Data.Patient
         void UpdateExaminationCategory(MyExaminationCategoryModel examCat);
         void UpdateExaminationType(MyExaminationTypeModel examType);
         MyExaminationTypeModel GetExaminationType(int Id);
+        List<MyRequestModel> GetAllRequests();
+        MyRequestModel GetRequestDetails(int Id);
+        MyInvestigationsModel GetInvestigationDetails(int Id);
     }
 }
